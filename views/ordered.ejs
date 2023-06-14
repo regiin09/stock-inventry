@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ordered Items</title>
+</head>
+<body>
+  <h1>Ordered Items</h1>
+  <% if (orderedItems.length === 0) { %>
+    <p>No items have been ordered yet.</p>
+  <% } else { %>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Item</th>
+        <th>Quantity</th>
+      </tr>
+      <% orderedItems.forEach(item => { %>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= item.item %></td>
+          <td><%= item.quantity %></td>
+        </tr>
+      <% }); %>
+    </table>
+  <% } %>
+</body>
+</html>

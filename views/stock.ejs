@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Inventory</title>
+</head>
+<body>
+  <h1>Welcome <%= sellerName %>!</h1>
+  <h2>Order Form</h2>
+  <form action="/order" method="POST">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Item</th>
+        <th>Remaining</th>
+        <th>Units</th>
+        <th>Quantity</th>
+      </tr>
+      <% stockItems.forEach(item => { %>
+        <tr>
+          <td><%= item.idstock %></td>
+          <td><%= item.item %></td>
+          <td><%= item.remaining %></td>
+          <td><%= item.units %></td>
+          <td>
+            <input type="number" name="quantity_<%= item.idstock %>" required>
+            <input type="hidden" name="itemName_<%= item.idstock %>" value="<%= item.item %>">
+          </td>
+        </tr>
+      <% }); %>
+    </table>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
